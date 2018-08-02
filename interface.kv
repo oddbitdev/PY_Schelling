@@ -1,0 +1,41 @@
+#:kivy 1.10.0
+
+<MapGrid>
+    size_hint: 1, 1 
+
+<MainScreen>
+    size_hint: 1, 1 
+
+<InterfaceContainer>
+    BoxLayout:
+        orientation: 'vertical'
+        size_hint: 0.7, 1
+        MainScreen:
+            id: main_screen
+            size_hint: 1, 0.9
+        ControlBar:
+            size_hint: 1, 0.1
+    BoxLayout:
+        orientation: 'vertical'
+        size_hint: 0.3, 1
+        Label:
+            id: info_label
+            size_hint: 1, 1
+            text_size: self.size
+            halign: 'left'
+            valign: 'middle'
+
+<ControlBar>
+    orientation: 'horizontal'
+    Button:
+        size_hint: 0.4, 1
+        text: 'generate'
+        on_release: app.generate_world()
+    Button:
+        size_hint: 0.3, 1
+        text: 'next'
+        on_release: app.run_step()
+    Button:
+        size_hint: 0.3, 1
+        text: 'run/pause'
+        on_release: app.run_pause_sim()
